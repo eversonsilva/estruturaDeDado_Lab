@@ -217,7 +217,22 @@ public class LinkedList {
     }
 
     public boolean compararListas(LinkedList lista1, LinkedList lista2) throws Exception {   
-        return lista1.equals(lista2);
+        
+        Node aux = header;
+        Node aux1 = lista2.header;
+        
+        while (aux.getNext() != null) {
+            if (aux.getElemento() != aux1.getElemento()){
+                return false;
+            }
+            aux1 = aux1.getNext();
+            aux = aux.getNext();
+        }
+        if (aux.getElemento() != (aux1.getElemento())){
+            return false;
+        }
+        return true;
+    
     }
     
     public void dividirLista() {
